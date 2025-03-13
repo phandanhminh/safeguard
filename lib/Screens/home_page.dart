@@ -40,4 +40,31 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget buildQuickActionCard(IconData icon, String label, BuildContext conte
+  Widget buildQuickActionCard(IconData icon, String label, BuildContext context, Widget page) {
+    return InkWell(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => page),
+      ),
+      child: Card(
+        elevation: 5,
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.4, // Giảm kích thước theo màn hình
+          height: 80, // Giảm chiều cao để tránh tràn
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, size: 30, color: Colors.blue), // Giảm kích thước icon
+              SizedBox(height: 5),
+              Text(
+                label,
+                style: TextStyle(fontSize: 14), // Giảm kích thước chữ
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
