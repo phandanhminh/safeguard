@@ -19,14 +19,15 @@ class HomePage extends StatelessWidget {
           SizedBox(height: 20),
           Text(
             'Your Dashboard:',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-            ),
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
           ),
           SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+          // Thay Row bằng Wrap để tránh tràn màn hình
+          Wrap(
+            spacing: 10, // Khoảng cách ngang giữa các phần tử
+            runSpacing: 10, // Khoảng cách dọc giữa các dòng
+            alignment: WrapAlignment.center,
             children: [
               buildQuickActionCard(Icons.notifications, 'Notifications', context, NotificationScreen()),
               buildQuickActionCard(Icons.calendar_today, 'Weekly Timetable', context, WeeklyTimetableScreen()),
@@ -34,37 +35,9 @@ class HomePage extends StatelessWidget {
               buildQuickActionCard(Icons.info, 'Information', context, InformationScreen()),
             ],
           ),
-          SizedBox(height: 20),
         ],
       ),
     );
   }
 
-  Widget buildQuickActionCard(IconData icon, String label, BuildContext context, Widget page) {
-    return InkWell(
-      onTap: () => Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => page),
-      ),
-      child: Card(
-        elevation: 5,
-        child: Container(
-          width: 100,
-          height: 100,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(icon, size: 40, color: Colors.blue),
-              SizedBox(height: 10),
-              Text(
-                label,
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+  Widget buildQuickActionCard(IconData icon, String label, BuildContext conte

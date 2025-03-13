@@ -19,7 +19,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
-  // Thêm các màn hình vào danh sách
+  // Danh sách các màn hình
   static final List<Widget> _screens = [
     HomePage(),
     ScheduleScreen(),
@@ -63,14 +63,14 @@ class _HomeScreenState extends State<HomeScreen> {
           color: Colors.blue,
           elevation: 10,
           child: InkWell(
-            onTap: () => _onItemTapped(5),  // Chuyển đến WeeklyTimetableScreen
+            onTap: () => _onItemTapped(5), // Chuyển đến WeeklyTimetableScreen
             child: SizedBox(
-              width: 80,
-              height: 80,
+              width: 70,
+              height: 70,
               child: Icon(
                 CupertinoIcons.clock_fill,
                 color: Colors.white,
-                size: 50,
+                size: 40,
               ),
             ),
           ),
