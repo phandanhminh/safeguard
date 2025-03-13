@@ -23,10 +23,10 @@ class HomePage extends StatelessWidget {
           ),
           SizedBox(height: 10),
 
-          // Thay Row bằng Wrap để tránh tràn màn hình
+          // Sử dụng Wrap để tránh lỗi tràn màn hình
           Wrap(
-            spacing: 10, // Khoảng cách ngang giữa các phần tử
-            runSpacing: 10, // Khoảng cách dọc giữa các dòng
+            spacing: 10,
+            runSpacing: 10,
             alignment: WrapAlignment.center,
             children: [
               buildQuickActionCard(Icons.notifications, 'Notifications', context, NotificationScreen()),
@@ -49,16 +49,16 @@ class HomePage extends StatelessWidget {
       child: Card(
         elevation: 5,
         child: Container(
-          width: MediaQuery.of(context).size.width * 0.4, // Giảm kích thước theo màn hình
-          height: 80, // Giảm chiều cao để tránh tràn
+          width: MediaQuery.of(context).size.width * 0.4,
+          height: 80,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(icon, size: 30, color: Colors.blue), // Giảm kích thước icon
+              Icon(icon, size: 30, color: Colors.blue),
               SizedBox(height: 5),
               Text(
                 label,
-                style: TextStyle(fontSize: 14), // Giảm kích thước chữ
+                style: TextStyle(fontSize: 14),
                 textAlign: TextAlign.center,
               ),
             ],

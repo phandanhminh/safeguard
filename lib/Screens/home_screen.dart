@@ -4,10 +4,6 @@ import 'home_page.dart';
 import 'profile_screen.dart';
 import 'report_screen.dart';
 import 'schedule_screen.dart';
-import 'notification_screen.dart';
-import 'weekly_timetable_screen.dart';
-import 'shift_history_screen.dart';
-import 'information_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -19,16 +15,12 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
-  // Danh sách các màn hình
+  // Chỉ giữ các màn hình chính
   static final List<Widget> _screens = [
     HomePage(),
     ScheduleScreen(),
-    NotificationScreen(),
     ReportScreen(),
     ProfileScreen(),
-    WeeklyTimetableScreen(),
-    ShiftHistoryScreen(),
-    InformationScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -45,38 +37,18 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
         leading: BackButton(),
       ),
-      body: _screens[_selectedIndex], // Hiển thị màn hình tương ứng
+      body: _screens[_selectedIndex], // Chỉ hiển thị 4 màn hình chính
       bottomNavigationBar: BottomAppBar(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             buildNavBarItem(CupertinoIcons.home, 'Home', 0),
             buildNavBarItem(CupertinoIcons.calendar, 'Schedule', 1),
-            buildNavBarItem(CupertinoIcons.bell, 'Notifications', 2),
-            buildNavBarItem(CupertinoIcons.doc_checkmark_fill, 'Report', 3),
-            buildNavBarItem(CupertinoIcons.profile_circled, 'Profile', 4),
+            buildNavBarItem(CupertinoIcons.doc_checkmark_fill, 'Report', 2),
+            buildNavBarItem(CupertinoIcons.profile_circled, 'Profile', 3),
           ],
         ),
       ),
-      floatingActionButton: ClipOval(
-        child: Material(
-          color: Colors.blue,
-          elevation: 10,
-          child: InkWell(
-            onTap: () => _onItemTapped(5), // Chuyển đến WeeklyTimetableScreen
-            child: SizedBox(
-              width: 70,
-              height: 70,
-              child: Icon(
-                CupertinoIcons.clock_fill,
-                color: Colors.white,
-                size: 40,
-              ),
-            ),
-          ),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
